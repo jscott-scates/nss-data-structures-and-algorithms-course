@@ -33,9 +33,9 @@ Polynomials are used to represent the values in an input for evaluation. For exa
 
 ---
 
-Understanding the growth rate of a problem is essential. This is what allows you to evaluate the algorithmic solutions presented and assess if there is sufficent time and memory for the suggested implementation. 
+Understanding the growth rate of a problem is essential. This is what allows you to evaluate the algorithmic solutions presented and assess if there is sufficient time and memory for the suggested implementation. 
 
-Being able to assess the fastest and most memory efficient algorithms at a glance imporves your efficency in writing effective code.
+Being able to assess the fastest and most memory efficient algorithms at a glance improves your efficiency in writing effective code.
 
     Example:
     A program displays the name, address, and userId for each user in an array. You need to create a polynomial that accounts for the number of steps taken for each user in an array.
