@@ -13,7 +13,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/2DArrays/introTo2DArrays.js"
+            "program": "${workspaceFolder}/2DArrays/indexingAndBoundsChecking.js"
         }
     ]
 }
