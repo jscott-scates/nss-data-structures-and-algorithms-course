@@ -5,8 +5,8 @@ Attempt #3 - self guided with additional notes
 */
 function getNeighbors(grid, row, col) {
     // Return an array of top, bottom, left, right neighbor values
-    const dr = [-1,0,1,0] //top, right, bottom, left
-    const dc = [0,-1,0,1]
+    const dr = [-1,1,0,0] //top, right, bottom, left
+    const dc = [0,0,-1,1]
 
     let neighbors = []
 
