@@ -58,8 +58,8 @@ console.log(navigatePlaylist(song1, "forward"))
   // ⏱️ Alex's Circular Playlist Challenge!
   // 🔓 Uncomment the below code section and implement the required logic:
   
-  /*
-  function detectLoop(playlist) {
+  
+function detectLoop(playlist) {
     // Detect if a playlist has a circular connection (Floyd's cycle detection)
     // Return true if loop exists, false otherwise
     
@@ -71,10 +71,16 @@ console.log(navigatePlaylist(song1, "forward"))
     // TODO: Implement the tortoise and hare algorithm
     // Hint: Move slow pointer one step, fast pointer two steps
     // If they meet, there's a loop
+
+    while (fast !== null && fast.next !== null){
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow === fast) return true;
+    }
     
     return false;
   }
-  */
+  
   
   // Helper function to create a test circular playlist
   function createCircularPlaylist() {
@@ -88,3 +94,4 @@ console.log(navigatePlaylist(song1, "forward"))
     
     return songA;
   }
+  console.log(detectLoop(createCircularPlaylist()))

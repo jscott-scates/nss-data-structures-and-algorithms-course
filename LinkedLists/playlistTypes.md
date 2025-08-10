@@ -144,3 +144,139 @@ class CircularPlaylist {
   }
 }
 ```
+## Circular Lists
+```
+class SmartCircularPlaylist extends CircularPlaylist {
+  constructor() {
+    super();
+    this.currentSong = null;
+  }
+  
+  play() {
+    if (!this.head) {
+      console.log("📭 Playlist is empty");
+      return null;
+    }
+    
+    // Start from current position or beginning
+    this.currentSong = this.currentSong || this.head;
+    console.log(`🎵 Now playing: ${this.currentSong.toString()}`);
+    return this.currentSong;
+  }
+  
+  next() {
+    if (this.currentSong) {
+      this.currentSong = this.currentSong.next;
+      console.log(`⏭️ Next: ${this.currentSong.toString()}`);
+      return this.currentSong;
+    }
+    return this.play();
+  }
+  
+  // Jump to any song and continue from there
+  jumpTo(songTitle) {
+    let current = this.head;
+    let found = false;
+    
+    do {
+      if (current.title === songTitle) {
+        this.currentSong = current;
+        console.log(`🎯 Jumped to: ${current.toString()}`);
+        found = true;
+        break;
+      }
+      current = current.next;
+    } while (current !== this.head);
+    
+    if (!found) {
+      console.log(`❌ Song "${songTitle}" not found in playlist`);
+    }
+    
+    return found;
+  }
+}
+```
+
+## Applications of Different Lists
+**Singly Linked Lists**:
+- Music Streaming -> basic playlist playback
+- Browser History -> forward navigation only
+- Undo Systems -> simple action history
+- RSS Feeds -> chronological article lists
+
+**Doubly Linked Lists**:
+- Media Players -> forward and backward navigation
+- Text Editors -> cursor movement in documents
+- Browser Tabs -> navigate between open tabs
+- Photo Galleries -> previous/next image viewing
+
+**Circular Linked Lists**:
+- Round Robin Scheduling -> CPU task scheduling
+- Multiplayer Games -> turn-based player rotation
+- Carousel Displays -> infinite image rotation
+- Background Music -> continuous playlist looping
+
+## Floyd Cycle Detection
+Used to detect if there is some node in the list that can be reached again by continuously following the next node in the linked list then the list has a cycle.
+- In a singly linked list, you will never hit a cycle as there is no looping back at any point.
+- In a cycle, at some point you will hit the same node twice.
+
+Using the Floyd Cycle Detection or Tortoise and Hare Algorithm is vital to solving this without using additional memory or increasing the time complexity. 
+- The tortise moves through the linked list one node at a time
+- The hare hops two spots ahead.
+- If there is a cycle, they will eventually land on the same node. 
+- To find where the cycle starts, after the two met, you set one point back to the head and then have each one hop one at a time they will meet at the start of the cycle.
+
+```
+function floydCycle(ListNode, head){
+  if (head === null || head.next === null) return false;
+
+  let slowNode= head;
+  let fastNode = head;
+
+  while(fast !== null && fast.next !== null){
+    slow = slow.next;
+    fast = fst.next.next;
+    if (slow === fast) break;
+  }
+  if (slow !== fast) return null;
+
+  slow = head;
+  while (slow !== fast){
+    slow = slow.next;
+    fast = fast.next;
+  }
+  return slow;
+}
+```
+
+## Choosing the Right Playlist Type
+
+### Singly Linked Lists
+- Memory is limited, only one pointer per node
+- Simple forward navigation, no need to go backward
+-  Implementation Simplicity, easier to code and debug
+- Append-heavy operations, frequently adding to the end
+
+### Doubly Linked Lists
+- Bi-directional Navigation, need to move forward or backward
+- Frequent Deletions, easier to remove nodes when you have a previous pointer.
+- LRU Caches, need to move items to front/back efficiently
+- Text Editing, cursor can move in both directions
+
+### Circular Lists
+- Continuous Cycling, round-robin or infinite loops needed
+- No Clear Start/End, data naturally forms a cycle
+- Resource Sharing, CPU scheduling, printer queues
+- Game mechanics, turn based systems, circular menus
+
+## Performance Comparison
+|Operation|Singly Linked|Doubly Linked|Circular|
+|--------|----------|----------|----------|
+|Memory per Node| 1 pointer| 2 pointers| 1 pointer|
+|Forward Traversal| O(1) per step| O(1) per step| O(1) per step|
+|Backward Traversal|O(n) from start| O(1)per step|O(n) around|
+|Insert at Beginning| O(1)|O(1)|O(1)|
+|Insert at End|O(n)or O(1) with tail pointer|O(1)|(O(n) or O(1) with tail pointer)|
+|Delete Node| O(n) to find prev| O(1) if have node|O(n) to find prev|
+|Cycle Detection|Not applicable|Not applicable|Built-in|
