@@ -13,7 +13,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/LinkedLists/introToLinkedLists.js"
+            "program": "${workspaceFolder}/LinkedLists/playlistTypes.js"
         }
     ]
 }
