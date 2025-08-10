@@ -13,7 +13,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/ArraysAndTwoPointers/twoPointerLogicForPairwiseTravel.js"
+            "program": "${workspaceFolder}/LinkedLists/introToLinkedLists.js"
         }
     ]
 }
