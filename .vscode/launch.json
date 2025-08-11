@@ -13,7 +13,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/LinkedLists/playlistTraversalAndManipulation.js"
+            "program": "${workspaceFolder}/LinkedLists/interviewPrepQuestion2.js"
         }
     ]
 }
