@@ -28,8 +28,8 @@ class SongNode {
   // ⏱️ Alex's First Traversal Challenge!
   // 🔓 Uncomment the below code section and implement the required logic:
   
-  /*
-  function calculatePlaylistDuration(head) {
+  
+function calculatePlaylistDuration(head) {
     // Calculate the total duration of all songs in the playlist
     // Return the total duration in seconds
     
@@ -38,16 +38,23 @@ class SongNode {
     
     // TODO: Traverse the playlist and sum up all song durations
     // Hint: Use the basic traversal pattern with a while loop
+
+    while (current !== null){
+        totalDuration = totalDuration + current.duration
+        current = current.next
+    }
     
     return totalDuration;
-  }
-  */
+}
+
+console.log(calculatePlaylistDuration(song1))
+
   
-  // ⏱️ Alex's Second Traversal Challenge!
-  // 🔓 Uncomment the below code section and implement the required logic:
+// ⏱️ Alex's Second Traversal Challenge!
+// 🔓 Uncomment the below code section and implement the required logic:
   
-  /*
-  function removeSongByTitle(head, targetTitle) {
+
+function removeSongByTitle(head, targetTitle) {
     // Remove the first song with the matching title from the playlist
     // Return the new head of the playlist
     
@@ -62,16 +69,28 @@ class SongNode {
     
     // TODO: Find and remove the target song from the middle or end
     // Hint: Keep track of the previous node to update its next pointer
+    let current = head;
+
+    while(current && current.next){
+        if (current.title.toLowerCase() === targetTitle.toLowerCase()){
+            console.log(`🗑️ Removed: ${current.next.toString()}`);
+            current.next = current.next.next
+            break
+        }
+        current = current.next // YOU HAVE TO MOVE THE SONG HOMIE
+    }
     
     return head;
-  }
-  */
+}
+
+console.log(removeSongByTitle(song1,"Stairway to Heaven"))
+
   
-  // ⏱️ Alex's Advanced Traversal Challenge!
-  // 🔓 Uncomment the below code section and implement the required logic:
+// ⏱️ Alex's Advanced Traversal Challenge!
+// 🔓 Uncomment the below code section and implement the required logic:
   
-  /*
-  function reversePlaylist(head) {
+
+function reversePlaylist(head) {
     // Reverse the order of songs in the playlist
     // Return the new head of the reversed playlist
     
@@ -81,7 +100,20 @@ class SongNode {
     
     // TODO: Reverse the links between nodes
     // Hint: For each node, make it point to the previous node instead of the next
-    
+    while (current){
+        //temp storage for the next value
+        next = current.next
+
+        //swap the current next value for the previous and vice versa
+        current.prev = next
+        current.next = previous
+
+        //Move both previous and current forward
+        previous = current
+        current = next
+    }
+
     return previous; // Previous becomes the new head
-  }
-  */
+}
+
+console.log(reversePlaylist(song1))
