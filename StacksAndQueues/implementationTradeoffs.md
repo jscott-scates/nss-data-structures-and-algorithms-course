@@ -31,4 +31,5 @@
 - High upfront cost
 - Low operational cost (fast performance)
 - Medium debugging cost (logic issues)
-- Low user frustration cost
+- Low user frustration cost'
+
