@@ -13,7 +13,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/StacksAndQueues/introToStacks.js"
+            "program": "${workspaceFolder}/StacksAndQueues/queues.js"
         }
     ]
 }
