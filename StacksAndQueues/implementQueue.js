@@ -1,6 +1,6 @@
 // Complete the Queue implementation below
 // You need to implement the missing methods to make the tests pass
-class Queue {
+class QueueArray {
   constructor() {
     this.items = [];
   }
@@ -43,3 +43,4 @@ class Queue {
     return this.items.length
   }
 }
+
